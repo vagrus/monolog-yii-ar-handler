@@ -65,7 +65,9 @@ class YiiArHandler extends AbstractProcessingHandler
      */
     protected function write(array $record)
     {
-        $model = \CActiveRecord::model($this->modelName);
+        /** @var \CActiveRecord $model */
+        $model = new $this->modelName;
+
         $logMessage = $record['formatted'];
         $context = $record['context'];
 
